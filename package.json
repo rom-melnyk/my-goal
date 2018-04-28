@@ -5,8 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "test": "mocha test/**/*.spec.js",
-    "client-dev": "tsc -w -p client/",
-    "client-prod": "tsc -p client/"
+    "client-dev": "ng build --watch",
+    "client-prod": "ng build --prod"
   },
   "keywords": [
     "ts",
@@ -29,6 +29,25 @@
     "md5": "^2.2.1"
   },
   "devDependencies": {
-    "mocha": "^5.1.1"
+    "@angular/animations": "^5.2.10",
+    "@angular/cli": "^1.7.4",
+    "@angular/common": "^5.2.10",
+    "@angular/compiler": "^5.2.10",
+    "@angular/compiler-cli": "^5.2.10",
+    "@angular/core": "^5.2.10",
+    "@angular/forms": "^5.2.10",
+    "@angular/http": "^5.2.10",
+    "@angular/language-service": "^5.2.10",
+    "@angular/platform-browser": "^5.2.10",
+    "@angular/platform-browser-dynamic": "^5.2.10",
+    "@angular/router": "^5.2.10",
+    "@types/node": "^10.0.0",
+    "core-js": "^2.5.5",
+    "mocha": "^5.1.1",
+    "rxjs": "^5.5.10",
+    "ts-node": "^6.0.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.3",
+    "zone.js": "^0.8.26"
   }
 }
