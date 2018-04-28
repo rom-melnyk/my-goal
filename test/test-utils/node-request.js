@@ -1,8 +1,22 @@
 const http = require('http');
+const https = require('https');
 const url = require('url');
 
 
 const JSON_REGEXP = /json/;
+
+function sendData(resolver, rejector, data, error) {
+    if (error) {
+        if (typeof data === 'object') {
+            data.error = error;
+        } else {
+            data = { error, debug: data };
+        }
+        rejector(data);
+    } else {
+        resolver(data);
+    }
+}
 
 function request(method, href, options = {}, data = null) {
     const requestOptions = Object.assign(
@@ -22,14 +36,12 @@ function request(method, href, options = {}, data = null) {
         }
     }
 
+    const requestor = requestOptions.protocol === 'https:' ? https : http;
     return new Promise((resolve, reject) => {
-        const req = http.request(requestOptions, (res) => {
+        const req = requestor.request(requestOptions, (res) => {
+            let error = false;
             if (res.statusCode >= 300 && res.statusCode !== 304 /* Not Modified */) {
-                reject({
-                    error: res.statusCode,
-                    response: res,
-                });
-                return;
+                error = res.statusCode;
             }
 
             let data = '';
@@ -39,15 +51,16 @@ function request(method, href, options = {}, data = null) {
                 if (JSON_REGEXP.test(res.headers['Content-Type'] || res.headers['content-type'])) {
                     try {
                         data = JSON.parse(data);
-                        resolve(data);
+                        sendData(resolve, reject, data, error);
                     } catch (e) {
                         reject({
-                            error: e,
-                            response: data
+                            status: 999,
+                            message: 'JSON parsing error',
+                            debug: data,
                         });
                     }
                 } else {
-                    resolve(data);
+                    sendData(resolve, reject, data, error);
                 }
             });
         });

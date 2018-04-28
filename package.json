@@ -4,7 +4,7 @@
   "description": "Gamification mechanism applied to goal setting",
   "main": "server/server.js",
   "scripts": {
-    "test": "mocha test/**/*"
+    "test": "mocha test/**/*.spec.js"
   },
   "keywords": [
     "ts",
