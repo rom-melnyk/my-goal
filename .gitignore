@@ -4,13 +4,11 @@
 node_modules/
 npm-debug.log
 
-THIS_IS_DEV_ENV
-NODE_PATH
 
 docs/CREDS.md
 server/https-cert/
 server/creds.json
-server/html/includes-jsx/includes-jsx-compiled.js
+server/static/
 
 *.map
 static/css/*.css

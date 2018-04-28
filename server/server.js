@@ -21,10 +21,8 @@ const { assignCampaignsApi } = require('./api/campaigns');
 const app = express();
 
 // app.use(UPLOADS_BASE, express.static( path.resolve(uploadDir) ));
-app.use('/gfx', express.static( path.resolve('static/gfx') ));
-app.use('/css', express.static( path.resolve('static/css') ));
-app.use('/js', express.static( path.resolve('static/js') ));
-app.use('/fonts', express.static( path.resolve('static/fonts') ));
+const staticPath = path.resolve(__dirname, 'static');
+app.use(express.static(staticPath));
 
 // app.use(forceSsl);
 app.use(cookieParser());
