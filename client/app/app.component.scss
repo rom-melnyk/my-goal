@@ -1,0 +1,35 @@
+@import "../config";
+
+
+:host {
+  $root-width: 80%;
+
+  & > * > * {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 60em;
+  }
+
+  header {
+    padding: 1em 0 1em;
+    background-color: $color-light;
+
+    .logo {
+      display: inline-block;
+      width: 1.5em;
+      vertical-align: -.2em; // align "G" with text baseline
+      margin-right: .5em;
+    }
+  }
+
+
+  .payload {
+    padding: 2em 0;
+  }
+
+
+  footer {
+    padding: 1em 0 1em;
+    background-color: $color-light;
+  }
+}

@@ -1,12 +1,12 @@
 webpackJsonp(["styles"],{
 
-/***/ "./client/styles.css":
+/***/ "./client/styles.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__("./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./client/styles.css");
+var content = __webpack_require__("./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./node_modules/sass-loader/lib/loader.js??ref--8-3!./client/styles.scss");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -20,8 +20,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/raw-loader/index.js!../node_modules/postcss-loader/lib/index.js??embedded!./styles.css", function() {
-			var newContent = require("!!../node_modules/raw-loader/index.js!../node_modules/postcss-loader/lib/index.js??embedded!./styles.css");
+		module.hot.accept("!!../node_modules/raw-loader/index.js!../node_modules/postcss-loader/lib/index.js??embedded!../node_modules/sass-loader/lib/loader.js??ref--8-3!./styles.scss", function() {
+			var newContent = require("!!../node_modules/raw-loader/index.js!../node_modules/postcss-loader/lib/index.js??embedded!../node_modules/sass-loader/lib/loader.js??ref--8-3!./styles.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -32,10 +32,10 @@ if(false) {
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./client/styles.css":
+/***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./node_modules/sass-loader/lib/loader.js??ref--8-3!./client/styles.scss":
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "@import url(\"https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed:300,500\");\n* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\nhtml, body {\n  margin: 0;\n  padding: 0;\n  min-height: 100%;\n  overflow: hidden;\n  font-family: 'IBM Plex Sans Condensed', sans-serif;\n  font-size: 16px;\n  font-weight: 300;\n  line-height: 1.45; }\nh1, h2, h3, h4, h5, h6 {\n  font-weight: 500;\n  margin: 1em 0 .25em; }\np {\n  margin: 1em 0 .25em; }\n"
 
 /***/ }),
 
@@ -511,7 +511,7 @@ module.exports = function (css) {
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./client/styles.css");
+module.exports = __webpack_require__("./client/styles.scss");
 
 
 /***/ })

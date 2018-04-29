@@ -1,0 +1,5 @@
+$color-light: hsl(200, 40%, 70%);
+$color-dark: darken($color-light, 30%);
+$color-darker: darken($color-light, 50%);
+
+$color-highlight: adjust-color($color-dark, $hue: -120, $lightness: -50%);
