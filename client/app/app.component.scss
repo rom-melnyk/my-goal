@@ -1,10 +1,11 @@
 @import "../config";
+@import "../css-framework/config";
 
 
 :host {
   $root-width: 80%;
 
-  & > * > * {
+  & > header > *, & > .payload, & > footer > * {
     margin: 0 auto;
     width: 80%;
     max-width: 60em;
@@ -18,7 +19,7 @@
       display: inline-block;
       width: 1.5em;
       vertical-align: -.2em; // align "G" with text baseline
-      margin-right: .5em;
+      margin-right: $interval-small;
     }
   }
 
@@ -29,7 +30,16 @@
 
 
   footer {
-    padding: 1em 0 1em;
+    padding: 1rem 0 1rem;
+    font-size: $font-size-small;
     background-color: $color-light;
+    color: $color-dark;
+
+    .logo {
+      display: inline-block;
+      width: 1em;
+      margin-right: $interval-x-small;
+      vertical-align: -.1em; // align "G" with text baseline
+    }
   }
 }

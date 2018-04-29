@@ -1,0 +1,15 @@
+@import "../../css-framework/lists";
+
+.goal {
+  @extend .v-list;
+
+  .action {
+    padding-top: $interval-x-small;
+  }
+
+  .wording {
+    .name {
+      margin-top: 0;
+    }
+  }
+}
