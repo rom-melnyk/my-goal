@@ -1,0 +1,32 @@
+@import "config";
+
+
+.v-list {
+  & > * {
+    margin-bottom: $interval-big;
+
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  &.narrow-interval > * {
+    margin-bottom: $interval-small;
+  }
+}
+
+
+.h-list {
+  & > * {
+    display: inline-block;
+    margin-right: $interval-big;
+
+    &:last-child {
+      margin-right: 0 !important;
+    }
+  }
+
+  &.narrow-interval > * {
+    margin-right: $interval-small;
+  }
+}

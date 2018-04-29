@@ -1,0 +1,43 @@
+@import "config";
+
+
+.button {
+  display: inline-block;
+  min-width: 2 * $interval-big + 1rem;
+  padding: $interval-small $interval-big;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+
+  text-align: center;
+  vertical-align: middle;
+
+  border-radius: $interval-x-small;
+  box-shadow: 0 0 0 2px $color-light-grey inset;
+  cursor: pointer;
+  transition: color $transition-props, background-color $transition-props, box-shadow $transition-props;
+
+  &:hover {
+    background-color: $color-light-grey;
+  }
+
+  &.narrow {
+    min-width: 2 * ($interval-small + $interval-x-small) + 1rem;
+    padding: $interval-small $interval-small + $interval-x-small;
+  }
+
+
+  @each $name, $color in (red, $color-red), (green, $color-green), (blue, $color-blue), (grey, $color-grey) {
+    &.#{$name} {
+      color: darken($color, $color-fade-amount-soft);
+      background: lighten($color, $color-fade-amount-hard);
+      box-shadow: 0 0 0 2px darken($color, $color-fade-amount-soft) inset;
+
+      &:hover {
+        color: $color-bg;
+        background-color: darken($color, $color-fade-amount-soft);
+        box-shadow: 0 0 0 2px darken($color, $color-fade-amount-soft) inset;
+      }
+    }
+  }
+}

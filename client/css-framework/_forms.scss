@@ -1,0 +1,129 @@
+@import "config";
+@import "lists";
+
+
+input, textarea, select {
+  display: inline-block;
+  width: 100%;
+  padding: $interval-small;
+  background-color: $color-bg;
+  border: 0 none;
+  box-shadow: 0 0 0 2px $color-light-grey inset;
+  border-radius: $interval-x-small;
+
+  font-weight: $font-weight;
+  font-family: $font-family;
+  font-size: $font-size;
+
+  transition: background-color $transition-props, box-shadoe $transition-props;
+
+  &:hover {
+    box-shadow: 0 0 0 2px $color-grey inset;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $color-grey inset;
+  }
+}
+
+
+input {
+  &[type=checkbox], &[type=radio] {
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    vertical-align: middle;
+    box-shadow: 0 0 0 transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &[type=number], &[type=date] {
+    max-width: 10em;
+    border-radius: $interval-x-small;
+  }
+
+  &[type=color] {
+    max-width: 10em;
+    height: 2em;
+    padding:  $interval-x-small;
+    vertical-align: middle;
+    border-radius: $interval-x-small;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &[type=range] {
+    padding: $interval-small 0;
+    box-shadow: 0 0 0 transparent;
+    border-radius: $interval-x-small;
+  }
+}
+
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 4rem;
+}
+
+
+select {
+  width: 100%;
+}
+
+
+label {
+  display: inline-block;
+  font-size: $font-size-small;
+  margin-top: .25rem;
+}
+
+
+.controls {
+  @extend .h-list;
+  //margin-top: 1em;
+  text-align: center;
+
+  &.small {
+    font-size: $font-size-small;
+  }
+}
+
+
+.has-hover-controls {
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .hover-controls {
+      bottom: 0;
+    }
+  }
+
+
+  .hover-controls {
+    @extend .controls;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -2 * $interval-big;
+    padding: $interval-small;
+    background: linear-gradient(to bottom, transparent 20%, transparentize($color-bg, .05) 100%);
+    transition: bottom $transition-props;
+  }
+}
+
+
+
+form, .form {
+  @extend .v-list;
+
+  & > * {
+    margin-bottom: $interval-small;
+  }
+}

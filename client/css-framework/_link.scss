@@ -1,0 +1,46 @@
+@import "config";
+
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  border-bottom: 1px solid $color-link;
+  transition: color $transition-props, border-bottom-color $transition-props;
+
+
+  &:hover, &:active, &:visited {
+    color: darken($color-link, $color-fade-amount-hard);
+    border-bottom-color: darken($color-link, $color-fade-amount-hard);
+
+    &.no-underline {
+      border-bottom: 0 none;
+    }
+  }
+
+  &.no-underline {
+    border-bottom: 0 none;
+  }
+
+  &.button {
+    color: inherit;
+    border-bottom: 0 none;
+  }
+}
+
+
+.pseudo-link {
+  @extend a;
+
+  cursor: pointer;
+  border-bottom-style: dotted;
+}
+
+
+.hover-tip {
+  border-bottom: 1px dotted transparent;
+  border-bottom-color: inherit; // if optimized, 'inherit' value does not work!
+
+  &:hover {
+    border-bottom-style: solid;
+  }
+}
