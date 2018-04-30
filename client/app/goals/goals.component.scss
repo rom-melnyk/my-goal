@@ -1,15 +1,21 @@
 @import "../../css-framework/lists";
 
-.goal {
+.goals {
   @extend .v-list;
 
-  .action {
-    padding-top: $interval-x-small;
-  }
+  .goal {
+    .action {
+      padding: $interval-x-small $interval-big 0 0;
 
-  .wording {
-    .name {
-      margin-top: 0;
+      .button {
+        width: 100%;
+      }
+    }
+
+    .wording {
+      .name {
+        margin-top: 0;
+      }
     }
   }
 }

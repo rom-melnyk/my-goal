@@ -1,11 +1,11 @@
-<div class="goal">
-  <div class="row">
-    <div class="column-4 action">
-      <span class="button green" data-id="{{goal_1.id}}">Go for it!</span>
+<div class="goals">
+  <div class="row goal" *ngFor="let goal of goals">
+    <div class="column-3 action">
+      <span class="button green" data-id="{{goal.id}}" (click)="onActionClick(goal)">Go for it!</span>
     </div>
-    <div class="column-8 wording">
-      <h3 class="name">{{goal_1.name}}</h3>
-      <p class="description">{{goal_1.description}}</p>
+    <div class="column-9 wording">
+      <h3 class="name">{{goal.name}}</h3>
+      <p class="description">{{goal.description}}</p>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoalInterface } from '../data-models/goal-interface';
 
 @Component({
   selector: 'app-goals',
@@ -6,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./goals.component.scss']
 })
 export class GoalsComponent implements OnInit {
-  goal_1 = { id: 0, name: 'asdf', description: 'blah blah blah' };
-
-  goals = [
+  goals: GoalInterface[] = [
       { id: 0, name: 'asdf', description: 'blah blah blah' },
       { id: 1, name: 'fghg', description: 'blah blah blah' },
       { id: 2, name: 'ynuny', description: 'blah blah blah' },
@@ -19,4 +18,7 @@ export class GoalsComponent implements OnInit {
   ngOnInit() {
   }
 
+    onActionClick(goal: GoalInterface) {
+        console.log(`Goal "${goal.name}" clicked`);
+    }
 }
