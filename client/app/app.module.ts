@@ -5,12 +5,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { GoalsComponent } from './goals/goals.component';
+import { GoalDetailsAsideComponent } from './goal-details-aside/goal-details-aside.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GoalsComponent
+    GoalsComponent,
+    GoalDetailsAsideComponent
   ],
   imports: [
     BrowserModule,

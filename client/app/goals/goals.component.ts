@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GoalInterface } from '../data-models/goal-interface';
+import { Goal } from '../data-models/goal';
 
 @Component({
   selector: 'app-goals',
@@ -7,18 +7,24 @@ import { GoalInterface } from '../data-models/goal-interface';
   styleUrls: ['./goals.component.scss']
 })
 export class GoalsComponent implements OnInit {
-  goals: GoalInterface[] = [
+  goals: Goal[] = [
       { id: 0, name: 'asdf', description: 'blah blah blah' },
       { id: 1, name: 'fghg', description: 'blah blah blah' },
       { id: 2, name: 'ynuny', description: 'blah blah blah' },
   ];
+
+  selectedGoal: Goal = null;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-    onActionClick(goal: GoalInterface) {
+    onGoalNameClick(goal: Goal) {
+        this.selectedGoal = this.selectedGoal === goal ? null : goal;
+    }
+
+    onActionClick(goal: Goal) {
         console.log(`Goal "${goal.name}" clicked`);
     }
 }

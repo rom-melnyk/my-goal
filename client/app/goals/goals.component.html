@@ -1,11 +1,14 @@
 <div class="goals">
-  <div class="row goal" *ngFor="let goal of goals">
+  <div class="row goal" [class.selected]="goal === selectedGoal" *ngFor="let goal of goals">
     <div class="column-3 action">
       <span class="button green" data-id="{{goal.id}}" (click)="onActionClick(goal)">Go for it!</span>
     </div>
     <div class="column-9 wording">
-      <h3 class="name">{{goal.name}}</h3>
+      <h3 class="name">
+        <a href="javascript://" (click)="onGoalNameClick(goal)">{{goal.name}}</a>
+      </h3>
       <p class="description">{{goal.description}}</p>
     </div>
   </div>
+  <app-goal-details-aside *ngIf="selectedGoal" [goal]="selectedGoal"></app-goal-details-aside>
 </div>

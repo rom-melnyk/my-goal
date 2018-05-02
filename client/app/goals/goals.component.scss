@@ -1,9 +1,16 @@
 @import "../../css-framework/lists";
+@import "../../config";
 
 .goals {
   @extend .v-list;
+  position: relative;
 
   .goal {
+    &.selected {
+      background-color: $color-light;
+    }
+
+
     .action {
       padding: $interval-x-small $interval-big 0 0;
 
