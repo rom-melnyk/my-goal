@@ -2,17 +2,20 @@
 @import "../../config";
 
 .goals {
-  @extend .v-list;
   position: relative;
 
   .goal {
+    margin-left: -$interval-small;
+    padding: $interval-small;
+    border-radius: $interval-small;
+
     &.selected {
       background-color: $color-light;
     }
 
 
     .action {
-      padding: $interval-x-small $interval-big 0 0;
+      padding: $interval-x-small $interval-big 0 $interval-x-small;
 
       .button {
         width: 100%;

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Goal } from '../data-models/goal';
+import { GoalsService } from '../services/goals.service';
+
 
 @Component({
   selector: 'app-goals',
@@ -7,17 +9,17 @@ import { Goal } from '../data-models/goal';
   styleUrls: ['./goals.component.scss']
 })
 export class GoalsComponent implements OnInit {
-  goals: Goal[] = [
-      { id: 0, name: 'asdf', description: 'blah blah blah' },
-      { id: 1, name: 'fghg', description: 'blah blah blah' },
-      { id: 2, name: 'ynuny', description: 'blah blah blah' },
-  ];
+  goals: Goal[] = [];
 
   selectedGoal: Goal = null;
 
-  constructor() { }
+  constructor(
+      private goalsService: GoalsService
+  ) { }
 
   ngOnInit() {
+    this.goalsService.fetchGoals()
+      .subscribe(goals => this.goals = goals);
   }
 
     onGoalNameClick(goal: Goal) {

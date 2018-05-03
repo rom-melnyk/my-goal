@@ -8,6 +8,9 @@ import { GoalsComponent } from './goals/goals.component';
 import { GoalDetailsAsideComponent } from './goal-details-aside/goal-details-aside.component';
 
 
+import { GoalsService } from './services/goals.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,9 @@ import { GoalDetailsAsideComponent } from './goal-details-aside/goal-details-asi
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+      GoalsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

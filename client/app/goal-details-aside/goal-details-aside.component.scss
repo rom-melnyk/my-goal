@@ -1,11 +1,18 @@
+@import "../../css-framework/config";
 @import "../../config";
 
 aside {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 33.3333%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33.3333%;
+  height: 100%;
 
-    background-color: $color-light;
+  padding: $interval-small;
+  background-color: $color-light;
+  border-radius: $interval-small;
+
+  .name {
+    margin-top: 0;
+  }
 }
