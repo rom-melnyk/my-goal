@@ -12,6 +12,7 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
 
 import { GoalsService } from './services/goals/goals.service';
 import { StaticDataService } from './services/static-data/static-data.service';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { StaticDataService } from './services/static-data/static-data.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [
     GoalsService,
