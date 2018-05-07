@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StaticDataService } from './services/static-data/static-data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +6,9 @@ import { StaticDataService } from './services/static-data/static-data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'My Goal';
 
-  constructor(
-    private staticData: StaticDataService
-  ) {
-  }
+  constructor() {}
 
   ngOnInit() {
-    this.title = this.staticData.title;
   }
 }

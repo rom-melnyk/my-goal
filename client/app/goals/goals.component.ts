@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Goal} from '../data-models/goal';
-import {GoalsService} from '../services/goals/goals.service';
+import { Component, OnInit } from '@angular/core';
+import { Goal } from '../data-models/goal';
+import { GoalsService } from '../services/goals/goals.service';
 
 
 @Component({
   selector: 'app-goals',
   templateUrl: './goals.component.html',
-  styleUrls: ['./goals.component.scss']
+  styleUrls: [ './goals.component.scss' ]
 })
 export class GoalsComponent implements OnInit {
   goals: Goal[] = [];
