@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Goal } from '../data-models/goal';
+import { Goal } from '../../data-models/goal';
 import { Observable } from 'rxjs';
 
 

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Goal } from '../data-models/goal';
-import { GoalsService } from '../services/goals.service';
+import {Component, OnInit} from '@angular/core';
+import {Goal} from '../data-models/goal';
+import {GoalsService} from '../services/goals/goals.service';
 
 
 @Component({
@@ -14,19 +14,20 @@ export class GoalsComponent implements OnInit {
   selectedGoal: Goal = null;
 
   constructor(
-      private goalsService: GoalsService
-  ) { }
+    private goalsService: GoalsService
+  ) {
+  }
 
   ngOnInit() {
     this.goalsService.fetchGoals()
-      .subscribe(goals => this.goals = goals);
+    .subscribe(goals => this.goals = goals);
   }
 
-    onGoalNameClick(goal: Goal) {
-        this.selectedGoal = this.selectedGoal === goal ? null : goal;
-    }
+  onGoalNameClick(goal: Goal) {
+    this.selectedGoal = this.selectedGoal === goal ? null : goal;
+  }
 
-    onActionClick(goal: Goal) {
-        console.log(`Goal "${goal.name}" clicked`);
-    }
+  onActionClick(goal: Goal) {
+    console.log(`Goal "${goal.name}" clicked`);
+  }
 }

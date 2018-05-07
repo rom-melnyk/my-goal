@@ -8,21 +8,23 @@ import { GoalsComponent } from './goals/goals.component';
 import { GoalDetailsAsideComponent } from './goal-details-aside/goal-details-aside.component';
 
 
-import { GoalsService } from './services/goals.service';
+import { GoalsService } from './services/goals/goals.service';
+import { StaticDataService } from './services/static-data/static-data.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GoalsComponent,
-    GoalDetailsAsideComponent
+    GoalDetailsAsideComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
   providers: [
-      GoalsService
+      GoalsService,
+      StaticDataService,
   ],
   bootstrap: [AppComponent]
 })
