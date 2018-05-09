@@ -3,7 +3,6 @@
  */
 
 /**
- *
  * @type {{Server: {*: ErrorCode}, User: {*: ErrorCode}}}
  */
 const ERRORS = {

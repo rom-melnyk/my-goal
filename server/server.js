@@ -17,12 +17,26 @@ const cookieParser = require('cookie-parser');
 const { assignCampaignsApi } = require('./api/campaigns');
 // const { assignUsersApi, userMiddleware } = require('./api/users');
 // const { assignFilesApi } = require('./api/files');
+const { ERRORS, wrapError } = require('./api/api-shared');
 
 const app = express();
 
 // app.use(UPLOADS_BASE, express.static( path.resolve(uploadDir) ));
 const staticPath = path.resolve(__dirname, 'static');
 app.use(express.static(staticPath));
+
+const API_MASK = /^\/api\//;
+app.use(/.*/, (req, res, next) => {
+    if (API_MASK.test(req.originalUrl)) {
+        next();
+    } else {
+        res.sendFile('index.html', { root: staticPath, }, (err) => {
+            if (err) {
+                next(err);
+            }
+        });
+    }
+});
 
 // app.use(forceSsl);
 app.use(cookieParser());
@@ -38,6 +52,23 @@ app.use(bodyParser.json());
 assignCampaignsApi(app);
 // assignUsersApi(app);
 // assignFilesApi(app);
+
+app.use((req, res, next) => {
+    const notFoundErrorMsg = wrapError(ERRORS.User.NotFound, {
+        debug: { url: req.originalUrl }
+    });
+    console.error(`[ROUTING] 404 at "${res.originalUrl}"`);
+    res.status(notFoundErrorMsg.status).send(notFoundErrorMsg);
+});
+
+app.use((error, req, res, next) => {
+    const unknownErrorMsg = wrapError(ERRORS.Server.General, {
+        message: 'Unexpected routing behavior',
+        debug: { url: req.originalUrl, error }
+    });
+    console.error(`[ROUTING] Unexpected behavior with "${res.originalUrl}"`);
+    res.status(unknownErrorMsg.status).send(unknownErrorMsg);
+});
 
 const logMsg = 'My Goal server listening on ';
 
