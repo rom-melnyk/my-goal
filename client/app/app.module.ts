@@ -13,6 +13,7 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
 import { GoalsService } from './services/goals/goals.service';
 import { StaticDataService } from './services/static-data/static-data.service';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [
     GoalsService,
