@@ -5,6 +5,7 @@ import { GoalsComponent } from './goals/goals.component';
 
 const routes: Routes = [
   { path: 'goals', component: GoalsComponent },
+  // TODO implement 404 route
 ];
 
 @NgModule({

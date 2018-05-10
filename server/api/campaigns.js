@@ -22,10 +22,4 @@ function getCampaign(req, res) {
 }
 
 
-function assignCampaignsApi(app) {
-    app.get('/api/campaigns', getCampaigns);
-    app.get('/api/campaign/:id', getCampaign);
-}
-
-
-module.exports = { assignCampaignsApi };
+module.exports = { getCampaigns, getCampaign, };
