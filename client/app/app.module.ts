@@ -4,13 +4,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { GoalsComponent } from './goals/goals.component';
-import { GoalDetailsAsideComponent } from './goal-details-aside/goal-details-aside.component';
+import { CampaignsComponent } from './campaigns/campaigns.component';
+import { CampaignDetailsAsideComponent } from './campaign-details-aside/campaign-details-aside.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 
 
-import { GoalsService } from './services/goals/goals.service';
+import { CampaignsService } from './services/campaigns/campaigns.service';
 import { StaticDataService } from './services/static-data/static-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,8 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     AppHeaderComponent,
     AppFooterComponent,
-    GoalsComponent,
-    GoalDetailsAsideComponent,
+    CampaignsComponent,
+    CampaignDetailsAsideComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
   ],
   providers: [
-    GoalsService,
+    CampaignsService,
     StaticDataService,
   ],
   bootstrap: [ AppComponent ]

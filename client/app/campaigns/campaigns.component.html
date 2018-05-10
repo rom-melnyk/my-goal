@@ -1,0 +1,15 @@
+<h2>Here are campaigns to do:</h2>
+<div class="campaigns">
+  <div class="row campaign" [class.selected]="campaign === selectedCampaign" *ngFor="let campaign of campaigns">
+    <div class="column-3 action">
+      <span class="button green" data-id="{{campaign.id}}" (click)="onActionClick(campaign)">Go for it!</span>
+    </div>
+    <div class="column-9 wording">
+      <h3 class="name">
+        <a href="javascript://" (click)="onCampaignNameClick(campaign)">{{campaign.name}}</a>
+      </h3>
+      <p class="description">{{campaign.description}}</p>
+    </div>
+  </div>
+  <app-campaign-details-aside *ngIf="selectedCampaign" [campaign]="selectedCampaign"></app-campaign-details-aside>
+</div>

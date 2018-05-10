@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { GoalsComponent } from './goals/goals.component';
+import { CampaignsComponent } from './campaigns/campaigns.component';
 
 const routes: Routes = [
-  { path: 'goals', component: GoalsComponent },
+  { path: 'campaigns', component: CampaignsComponent },
   // TODO implement 404 route
 ];
 
