@@ -3,4 +3,8 @@
     <img class="logo" alt="{{ title }}" src="/assets/logo.png">
     Achieve with {{ title }}!
   </h1>
+  <nav>
+    <a routerLink="/" [class.current]="currentLocation === '/'">Home</a>
+    <a routerLink="/campaigns" [class.current]="currentLocation === '/campaigns'">My campaigns</a>
+  </nav>
 </header>

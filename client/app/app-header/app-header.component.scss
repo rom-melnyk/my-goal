@@ -1,6 +1,8 @@
 @import "../../config";
 @import "../../shared";
 @import "../../css-framework/config";
+@import "../../css-framework/grid";
+@import "../../css-framework/lists";
 
 
 header {
@@ -8,7 +10,7 @@ header {
     @extend .root-component;
   }
 
-  padding: 1em 0 1em;
+  padding-top: $interval-big;
   background-color: $color-light;
 
   .logo {
@@ -16,5 +18,34 @@ header {
     width: 1.5em;
     vertical-align: -.2em; // align "G" with text baseline
     margin-right: $interval-small;
+  }
+
+  nav {
+    @extend .clear-fix;
+
+    padding-top: $interval-big - $interval-small;
+
+    a {
+      display: block;
+      float: left;
+      margin-right: $interval-small;
+      padding: $interval-small $interval-big;
+
+      border-bottom: 0 none; // @overrode
+      border-radius: $interval-x-small $interval-x-small 0 0;
+      transition: background-color $transition-props;
+
+      &:active, &:hover,
+      &.current {
+        background-color: $color-bg;
+      }
+
+      &:first-child {
+        margin-left: -$interval-big;
+      }
+      &:last-child {
+        margin-left: 0;
+      }
+    }
   }
 }

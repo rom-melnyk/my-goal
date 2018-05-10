@@ -8,7 +8,7 @@ footer {
     @extend .root-component;
   }
 
-  padding: 1rem 0 1rem;
+  padding: $interval-big 0;
   font-size: $font-size-small;
   background-color: $color-light;
   color: $color-dark;
