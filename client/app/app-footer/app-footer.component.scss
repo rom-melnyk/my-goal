@@ -1,0 +1,22 @@
+@import "../../config";
+@import "../../shared";
+@import "../../css-framework/config";
+
+
+footer {
+  & > * {
+    @extend .root-component;
+  }
+
+  padding: $interval-big 0;
+  font-size: $font-size-small;
+  background-color: $color-light;
+  color: $color-dark;
+
+  .logo {
+    display: inline-block;
+    width: 1em;
+    margin-right: $interval-x-small;
+    vertical-align: -.1em; // align "G" with text baseline
+  }
+}

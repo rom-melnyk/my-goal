@@ -14,15 +14,19 @@ const cookieParser = require('cookie-parser');
 
 // const httpsOptions = require('./https-options');
 // const { renderAllPostsPage, renderPostPage, renderAdminPage } = require('./html/index.html.js');
-const { assignCampaignsApi } = require('./api/campaigns');
+const { getCampaigns, getCampaign } = require('./api/campaigns');
 // const { assignUsersApi, userMiddleware } = require('./api/users');
 // const { assignFilesApi } = require('./api/files');
+const { initCommonMiddleware, mwRedirectNonApiToIndexFile, mw404, mwUnknownRoutingError, } = require('./common-middleware');
 
 const app = express();
 
 // app.use(UPLOADS_BASE, express.static( path.resolve(uploadDir) ));
 const staticPath = path.resolve(__dirname, 'static');
+initCommonMiddleware(staticPath);
+
 app.use(express.static(staticPath));
+app.use(/.*/, mwRedirectNonApiToIndexFile);
 
 // app.use(forceSsl);
 app.use(cookieParser());
@@ -32,12 +36,17 @@ app.use(bodyParser.json());
 })); */
 // app.use(userMiddleware);
 
-// app.get('/', renderAllPostsPage);
-// app.get('/post/:id', renderPostPage);
-// app.get('/admin(/*)?', renderAdminPage);
-assignCampaignsApi(app);
+// ---------- API ----------
+app.get('/api/campaigns', getCampaigns);
+app.get('/api/campaign/:id', getCampaign);
 // assignUsersApi(app);
 // assignFilesApi(app);
+
+
+// ---------- Error handling ----------
+app.use(mw404);
+app.use(mwUnknownRoutingError);
+
 
 const logMsg = 'My Goal server listening on ';
 

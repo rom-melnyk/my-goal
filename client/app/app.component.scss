@@ -1,45 +1,11 @@
 @import "../config";
+@import "../shared";
 @import "../css-framework/config";
 
 
-:host {
-  $root-width: 80%;
+.payload {
+  @extend .root-component;
 
-  & > header > *, & > .payload, & > footer > * {
-    margin: 0 auto;
-    width: 80%;
-    max-width: 60em;
-  }
-
-  header {
-    padding: 1em 0 1em;
-    background-color: $color-light;
-
-    .logo {
-      display: inline-block;
-      width: 1.5em;
-      vertical-align: -.2em; // align "G" with text baseline
-      margin-right: $interval-small;
-    }
-  }
-
-
-  .payload {
-    padding: 2em 0;
-  }
-
-
-  footer {
-    padding: 1rem 0 1rem;
-    font-size: $font-size-small;
-    background-color: $color-light;
-    color: $color-dark;
-
-    .logo {
-      display: inline-block;
-      width: 1em;
-      margin-right: $interval-x-small;
-      vertical-align: -.1em; // align "G" with text baseline
-    }
-  }
+  padding: 2em 0;
 }
+
